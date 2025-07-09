@@ -4,6 +4,7 @@ import { Color } from "../../constants";
 import { TextRevealCard } from "../ui/text-reveal-card";
 import HaloVisualizer from "../aiAssistant/HaloVisualizer";
 import { useDecibelDetector } from "../../hooks/useDecibelDetector";
+import { small } from "motion/react-client";
 
 function Header() {
   const { decibelLevel, startDetection } = useDecibelDetector();
@@ -49,7 +50,11 @@ function Header() {
               }
         }
       >
-        <HaloVisualizer scaleRange={[0.8, 2]} decibel={decibelLevel} />
+        <HaloVisualizer
+          size={isHome ? "large" : "small"}
+          scaleRange={[0.8, 2]}
+          decibel={decibelLevel}
+        />
       </div>
     </div>
   );

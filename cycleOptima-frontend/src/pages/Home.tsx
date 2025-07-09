@@ -32,7 +32,7 @@ function Home() {
     <div className=" flex-1 w-full h-full flex flex-col  items-center">
       <div
         style={{
-          marginTop: 240,
+          marginTop: 200,
         }}
         className="p-2 "
       >

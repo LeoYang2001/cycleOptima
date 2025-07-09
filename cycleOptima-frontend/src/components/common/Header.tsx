@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Color } from "../../constants";
 import { TextRevealCard } from "../ui/text-reveal-card";
 import HaloVisualizer from "../aiAssistant/HaloVisualizer";
@@ -14,6 +14,11 @@ function Header() {
     startDetection();
   }, []);
 
+  useEffect(() => {
+    console.log("Path changed:", location.pathname);
+    // You can do other side effects here
+  }, [location.pathname]);
+
   const isHome = location.pathname === "/";
 
   return (
@@ -24,8 +29,20 @@ function Header() {
         backgroundColor: Color.darkerColor,
         zIndex: 999,
       }}
-      className="w-full py-4 flex relative flex-row justify-center items-center"
+      className="w-full py-4 flex relative flex-row justify-between px-10 items-center"
     >
+      {!isHome ? (
+        <Link
+          to={"/"}
+          className="  hover:transform  hover:-translate-y-2 transition-all duration-300"
+        >
+          <span className=" text-lg font-semibold text-white cursor-pointer  ">
+            Home
+          </span>
+        </Link>
+      ) : (
+        <div className=" opacity-0"> home</div>
+      )}
       <div>
         <TextRevealCard
           text="Test. Tweak. Repeat."
@@ -33,6 +50,7 @@ function Header() {
           textSize={40}
         />
       </div>
+      <div className=" opacity-0">placeholder</div>
 
       <div
         className={`absolute transition-all duration-800 `}
@@ -40,7 +58,7 @@ function Header() {
           isHome
             ? {
                 left: "50%",
-                top: "120%",
+                top: "140%",
                 transform: "translate(-50%)",
               }
             : {

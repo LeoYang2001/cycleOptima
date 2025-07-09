@@ -25,8 +25,8 @@ const HaloVisualizer: React.FC<Props> = ({
 
   // Size mapping
   const sizeMap = {
-    small: 60,
-    medium: 90,
+    small: 40,
+    medium: 80,
     large: 120,
   };
   const dimension = sizeMap[size];

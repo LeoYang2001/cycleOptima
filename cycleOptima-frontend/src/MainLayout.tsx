@@ -16,7 +16,7 @@ export default function MainLayout() {
         style={{
           backgroundColor: Color.lighterDark,
         }}
-        className=" flex-1 bg-red-50 w-full "
+        className=" flex-1  w-full px-10 pt-6 "
       >
         <ShootingStars />
 
